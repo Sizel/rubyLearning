@@ -3,7 +3,7 @@ class Company
   attr_accessor :vacancies
   # attr_reader :description
 
-  def initialize(title, vacancies = [])
+  def initialize(title, vacancies)
     @title = title
     @vacancies = vacancies
   end
