@@ -2,7 +2,12 @@ require 'benchmark'
 require './lib/vacancy.rb'
 require './lib/company.rb'
 require './lib/companies_writer.rb'
-require './lib/it_vacancies_scraper.rb'
+begin
+  require './lib/it_vacancies_scraper.rb'
+rescue SocketError => e
+  puts e.message
+  exit
+end
 
 companies_writer = CompaniesWriter.new("./Vacancies.xlsx", %w(Company Vacancy Is\ new Link))
 it_vacancies_scraper = ITVacanciesScraper.new

@@ -2,6 +2,13 @@ require 'caxlsx'
 
 class CompaniesWriter
   def initialize(file_path, column_names, worksheet_name = "Worksheet 1")
+    begin
+      File.new(file_path)
+    rescue SystemCallError => e
+      puts e.message
+      exit
+    end
+
     @file_path = file_path
     @package = Axlsx::Package.new()
     @worksheet = @package.workbook.add_worksheet(:name => worksheet_name) do |sheet|

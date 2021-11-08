@@ -2,8 +2,8 @@ require 'open-uri'
 require 'nokogiri'
 
 class ITVacanciesScraper
-  URL = "https://www.rabota.md"
-  HTML = URI.open(URL + "/ru/vacancies/category/it")
+  URL = "https://www.rabota.md/ru/vacancies/category/it"
+  HTML = URI.open(URL)
   DOM = Nokogiri::HTML5(HTML)
 
   def get_all_companies
